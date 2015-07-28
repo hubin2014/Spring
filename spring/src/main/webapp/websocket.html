@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="websocket/jquery-1.7.2.min.js"></script>
+<script type="javascript" src="websocket/sockjs-0.3.min.js"></script>
+<script>
+/**
+ * websocket.send() #向服务端发送信息，类型包括{String|ArrayBuffer|ArrayBufferView|Blob}
+  *websocket.close() #向服务器发送关闭的请求，参数{number} [code]  {string} [reason]，附相关代码表，一般使用本方法
+ */
+var websocket;
+function getconnection(){
+	if(websocket==null){
+		if ('WebSocket' in window) {
+			websocket = new WebSocket("ws://192.168.1.105:8080/spring/webSocketServer.htm");
+		} else if ('MozWebSocket' in window) {
+			websocket = new MozWebSocket("ws://192.168.1.105:8080/spring/webSocketServer.htm");
+		} else {
+			websocket = new SockJS(
+					"http://localhost:8080/spring/sockjs/webSocketServer.htm");
+		}
+		//当Browser和WebSocketServer连接成功后，会触发onopen消息；
+		websocket.onopen = function(evnt) {
+			console.log("连接成功！");
+		};
+		//当Browser接收到WebSocketServer发送过来的数据时，就会触发onmessage消息,参数evt中包含server传输过来的数据
+		websocket.onmessage = function(evnt) {
+			var json=JSON.parse(event.data);
+			console.log(json);
+			$("#chatare").html(json.info);
+		};
+		// 如果连接失败，发送、接收数据失败或者处理数据出现错误，browser会触发onerror消息；
+		websocket.onerror = function(evnt) {
+			console.log("连接失败！");
+		};
+		//当Browser接收到WebSocketServer端发送的关闭连接请求时，就会触发onclose消息。
+		websocket.onclose = function(evnt) {
+			console.log("连接被关闭！");
+		}
+	}
+}
+
+var name;
+function disp_prompt() {
+	var newname = prompt("请输入你的名称：", "");
+	if (newname != null && newname != "") {
+		name = newname;
+		$("#nowUser").show();
+		$("#nowUser").text(name);
+	} else {
+		disp_prompt();
+	}
+}
+
+	//登录
+$(function(){
+		disp_prompt();
+		$.post("login.htm", {
+			"username" : name
+		}, function() {
+			getconnection();
+		}, "html");
+
+		
+		$("#submit").click(function(){
+			var params = {
+					"message":$("#message").val()
+					};
+					$.ajax({
+					type : "post",
+					async:true,//异步，如果等于false 那么就是同步
+					url :"sendmessage.htm",
+					dataType : "html",
+					data: params,//参数传递
+					success : function(msg) {//ajax返回成功后做处理
+					      
+					},
+					error : function(msg) {
+					alert("ajax返回失败! ");
+					}
+					});
+		})
+		
+	})
+</script>
+</head>
+<body>
+<div id="nowUser" style="display: none;"></div>
+<input type="text" id="message">
+<button id="submit" >确定</button>
+<div style="background-color: #ccc;width: 300px;height: 200px" id="chatare"></div>
+</body>
+</html>
