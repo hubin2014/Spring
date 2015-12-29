@@ -19,8 +19,58 @@
    	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
    	http://www.springframework.org/schema/websocket 
     http://www.springframework.org/schema/websocket/spring-websocket.xsd ">
-    
-    <context:component-scan base-package="com.ldl.origami.websocket" />
-   
-    
-    </beans>
+
+	<context:component-scan base-package="com.ldl.origami.websocket" />
+	<context:component-scan base-package="com.hubin.controller" />
+
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/hubin/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+		<!-- order 数据越大优先级越低 -->
+		<property name="order" value="2" />
+	</bean>
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		
+		<!--类似于查找路径-->
+		<property name="prefix">
+			<value>/hubin/</value>
+		</property>
+		<property name="suffix">
+			<value>.html</value>
+		</property>
+		<!-- order 数据越大优先级越低 -->
+		<property name="order" value="3" />
+	</bean>
+
+
+	<bean
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="suffix" value=".ftl" />
+		<property name="order" value="1" />
+		<!-- 防止freemark中文乱码 -->
+		<property name="contentType" value="text/html;charset=UTF-8"></property>
+	</bean>
+	<bean id="freeMarkerConfigurer"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPaths">
+			<array>
+				<value>/WEB-INF/</value>
+			</array>
+		</property>
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="template_update_delay">5</prop>
+				<prop key="default_encoding">UTF-8</prop>
+				<prop key="locale">zh_CN</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>
