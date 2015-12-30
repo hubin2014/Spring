@@ -312,13 +312,17 @@
 							</dependency>
 						</dependencies>
 					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-jxr-plugin</artifactId>
-						<version>2.5</version>
-					</plugin>
 				</plugins>
 			</build>
 		</profile>
 	</profiles>
+	<reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>2.5</version>
+      </plugin>
+    </plugins>
+  </reporting>
 </project>
