@@ -9,7 +9,6 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<spring-version>4.0.4.RELEASE</spring-version>
-		<checkstyle.config.location>config/maven_checks.xml</checkstyle.config.location>
 	</properties>
 	<dependencies>
 		<!-- 数据库 -->
@@ -295,7 +294,7 @@
                                <id>validate</id>
                                <phase>validate</phase>
                                <configuration>
-                                    <configLocation>checkstyle.xml</configLocation>
+                                    <configLocation>config/maven_checks.xml</configLocation>
                                     <encoding>UTF-8</encoding>
                                     <consoleOutput>true</consoleOutput>
                                     <failsOnError>true</failsOnError>
