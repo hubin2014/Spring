@@ -30,4 +30,8 @@ public class MainTest {
         Performer performer = (Performer) ctx.getBean("kenny");
         performer.perform();
     }
+    
+    public void show() {
+        System.out.println("211");
+    }
 }
