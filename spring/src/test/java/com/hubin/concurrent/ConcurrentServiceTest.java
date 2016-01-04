@@ -5,7 +5,7 @@
  */
 package com.hubin.concurrent;
 
-import org.junit.Test;
+import org.junit.Ignore;
 
 /**
  * <一句话功能简述> <功能详细描述>
@@ -18,7 +18,7 @@ import org.junit.Test;
 public class ConcurrentServiceTest {
     ConcurrentService cs = ConcurrentService.getInstance();
     
-    @Test
+    @Ignore
     public void test() {
         cs.synchronizedTest();
     }
