@@ -34,4 +34,13 @@ public class ConcurrentService {
             }
         }
     }
+    
+    public void conditionals(boolean flage) {
+        if (flage) {
+            System.out.println("good");
+        }
+        else {
+            System.out.println("bad");
+        }
+    }
 }

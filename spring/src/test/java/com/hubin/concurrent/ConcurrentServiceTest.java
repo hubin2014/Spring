@@ -22,4 +22,9 @@ public class ConcurrentServiceTest {
     public void test() {
         cs.synchronizedTest();
     }
+    
+    @Test
+    public void testConditionals() {
+        cs.conditionals(true);
+    }
 }
