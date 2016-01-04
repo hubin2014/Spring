@@ -253,6 +253,12 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<argLine> -XX:-UseSplitVerifier</argLine>
+				</configuration>
+			</plugin>
 			<!-- findbugs插件 -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
