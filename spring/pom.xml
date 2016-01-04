@@ -226,12 +226,15 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.1</version>
+				<version>2.3.1</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
+					<encoding>utf8</encoding>
+					<compilerArgument>-XX:-UseSplitVerifier</compilerArgument>
 				</configuration>
 			</plugin>
+			<!-- 覆盖率插件 -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>cobertura-maven-plugin</artifactId>
@@ -251,6 +254,7 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- findbugs插件 -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
@@ -263,6 +267,7 @@
 			</plugin>
 		</plugins>
 	</build>
+	<!-- checkstylec插件 -->
 	<reporting>
 		<plugins>
 			<plugin>
