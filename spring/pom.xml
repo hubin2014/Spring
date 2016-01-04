@@ -230,8 +230,7 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
-					<encoding>utf8</encoding>
-					<compilerArgument>-XX:-UseSplitVerifier</compilerArgument>
+					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 			<!-- 覆盖率插件 -->
