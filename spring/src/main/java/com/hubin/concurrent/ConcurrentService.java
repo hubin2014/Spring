@@ -22,7 +22,7 @@ public class ConcurrentService {
     
     public void synchronizedTest() {
         synchronized (this) {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 1; i++) {
                 try {
                     Thread.sleep(1000);
                 }
