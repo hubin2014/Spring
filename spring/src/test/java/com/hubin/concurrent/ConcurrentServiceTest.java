@@ -27,4 +27,10 @@ public class ConcurrentServiceTest {
     public void testConditionals() {
         cs.conditionals(true);
     }
+    
+    @Test
+    public void testInit() {
+        cs.list.add("zhangsan");
+        System.out.println("请看list的大小：" + cs.list.size());
+    }
 }

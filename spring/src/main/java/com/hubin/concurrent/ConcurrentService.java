@@ -5,6 +5,9 @@
  */
 package com.hubin.concurrent;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * <一句话功能简述> <功能详细描述>
  * 
@@ -15,6 +18,8 @@ package com.hubin.concurrent;
  */
 public class ConcurrentService {
     private final static ConcurrentService ccs = new ConcurrentService();
+    
+    public List<String> list = new ArrayList<String>();
     
     public static ConcurrentService getInstance() {
         return ccs;
