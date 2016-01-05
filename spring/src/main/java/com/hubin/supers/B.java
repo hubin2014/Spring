@@ -30,5 +30,6 @@ public class B extends A {
         i = i << 3;
         System.out.println(i);
         System.out.println(Integer.toBinaryString(i));
+        scan.close();
     }
 }
