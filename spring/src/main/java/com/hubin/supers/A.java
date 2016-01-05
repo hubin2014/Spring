@@ -22,5 +22,6 @@ public class A {
     
     public A(Desc desc) {
         this.desc = desc;
+        int j = 10 / 0;
     }
 }
