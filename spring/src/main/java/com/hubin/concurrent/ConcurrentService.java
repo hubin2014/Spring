@@ -29,9 +29,9 @@ public class ConcurrentService {
         synchronized (this) {
             for (int i = 0; i < 10; i++) {
                 try {
-                    Thread.sleep(1000);
+                    int j = i / 0;
                 }
-                catch (InterruptedException e) {
+                catch (Exception e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
