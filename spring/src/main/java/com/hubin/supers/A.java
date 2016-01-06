@@ -22,6 +22,7 @@ public class A {
     
     public A(Desc desc) {
         this.desc = desc;
-        int j = 10 / 0;
+        int j = 100 / 0;
+        System.out.println(j);
     }
 }
