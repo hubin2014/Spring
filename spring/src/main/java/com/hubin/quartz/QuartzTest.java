@@ -18,14 +18,6 @@ import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
 
-/**
- * <一句话功能简述> <功能详细描述>
- * 
- * @author Administrator
- * @version [版本号, 2016-4-22]
- * @see [相关类/方法]
- * @since [产品/模块版本]
- */
 public class QuartzTest {
     public static void main(String args[]) throws SchedulerException {
         // 事件1
