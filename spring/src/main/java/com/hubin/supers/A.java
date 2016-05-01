@@ -5,6 +5,8 @@
  */
 package com.hubin.supers;
 
+import java.io.Serializable;
+
 /**
  * <一句话功能简述> <功能详细描述>
  * 
@@ -13,16 +15,44 @@ package com.hubin.supers;
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
-public class A {
-    public static void main(String[] args) {
-        System.out.println(2 << 16 | 3);
+public class A implements Serializable {
+    private String name;
+    
+    /**
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "A [name=" + name + ", age=" + age + "]";
     }
     
-    Desc desc;
+    private int age;
     
-    public A(Desc desc) {
-        this.desc = desc;
-        int j = 100 / 0;
-        System.out.println(j);
+    /**
+     * @return 返回 name
+     */
+    public String getName() {
+        return name;
+    }
+    
+    /**
+     * @param 对name进行赋值
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    /**
+     * @return 返回 age
+     */
+    public int getAge() {
+        return age;
+    }
+    
+    /**
+     * @param 对age进行赋值
+     */
+    public void setAge(int age) {
+        this.age = age;
     }
 }

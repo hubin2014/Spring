@@ -5,6 +5,8 @@
  */
 package com.hubin.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,8 +33,9 @@ public class ConcurrentController {
     }
     
     @RequestMapping("view")
-    public String viewTest() {
-        return "hello";
+    @ResponseBody
+    public String viewTest(HttpSession session) {
+        return session.getId();
     }
     
     /*

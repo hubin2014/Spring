@@ -5,7 +5,7 @@
  */
 package com.hubin.supers;
 
-import java.util.Scanner;
+import java.io.Serializable;
 
 /**
  * <一句话功能简述> <功能详细描述>
@@ -15,21 +15,44 @@ import java.util.Scanner;
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
-public class B extends A {
-    public B(Desc desc) {
-        super(desc);
+public class B implements Serializable {
+    private A a;
+    
+    private String name;
+    
+    /**
+     * @return 返回 a
+     */
+    public A getA() {
+        return a;
     }
     
-    public static final int ok = -1 << 3;
+    /**
+     * @param 对a进行赋值
+     */
+    public void setA(A a) {
+        this.a = a;
+    }
     
-    public static void main(String[] args) {
-        System.out.println("请输入一个数");
-        Scanner scan = new Scanner(System.in);
-        int i = scan.nextInt();
-        System.out.println(Integer.toBinaryString(i));
-        i = i << 3;
-        System.out.println(i);
-        System.out.println(Integer.toBinaryString(i));
-        scan.close();
+    /**
+     * @return 返回 name
+     */
+    public String getName() {
+        return name;
+    }
+    
+    /**
+     * @param 对name进行赋值
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    /**
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "B [a=" + a + ", name=" + name + "]";
     }
 }
