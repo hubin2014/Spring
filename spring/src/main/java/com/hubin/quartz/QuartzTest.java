@@ -18,6 +18,9 @@ import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
 
+/*
+ * A
+ */
 public class QuartzTest {
     public static void main(String args[]) throws SchedulerException {
         // 事件1
