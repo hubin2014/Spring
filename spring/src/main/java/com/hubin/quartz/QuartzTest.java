@@ -19,7 +19,7 @@ import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
 
 /**
- * <一句话功能简述> <功能详细描述>
+ * 做为定时任务的调度器
  * 
  * @author Administrator
  * @version [版本号, 2016-4-22]
