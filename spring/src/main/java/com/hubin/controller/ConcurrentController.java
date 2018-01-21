@@ -15,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.hubin.concurrent.ConcurrentService;
 
 /**
- * <一句话功能简述> <功能详细描述>
  * 
  * @author Administrator
  * @version [版本号, 2015-9-24]
